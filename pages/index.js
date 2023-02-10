@@ -55,7 +55,7 @@ export default function Home(props) {
 
 export async function getStaticProps() {
   const client = await MongoClient.connect(
-    `mongodb+srv://admin:admin@cluster0.8rv8cqp.mongodb.net/?retryWrites=true&w=majority`,
+    `mongodb+srv://admin:OaWoG3FWqJoaOWSE@cluster0.cas2sic.mongodb.net/?retryWrites=true&w=majority`,
     { useNewUrlParser: true }
   );
 
@@ -71,7 +71,7 @@ export async function getStaticProps() {
         id: task._id.toString(),
         resourceName: task.resourceName,
         jobCode: task.jobCode,
-        taskDescription:task.taskDescription,
+        taskDescription: task.taskDescription,
         createdAt: task.createdAt,
         createdEt: task.createdEt,
         statusDetails: task.statusDetails,

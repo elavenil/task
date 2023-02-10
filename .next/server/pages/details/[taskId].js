@@ -1,275 +1,72 @@
 "use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 (() => {
 var exports = {};
-exports.id = 603;
-exports.ids = [603];
+exports.id = "pages/details/[taskId]";
+exports.ids = ["pages/details/[taskId]"];
 exports.modules = {
 
-/***/ 9492:
+/***/ "./pages/details/[taskId]/index.js":
+/*!*****************************************!*\
+  !*** ./pages/details/[taskId]/index.js ***!
+  \*****************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
-/* harmony export */   "getStaticPaths": () => (/* binding */ getStaticPaths),
-/* harmony export */   "getStaticProps": () => (/* binding */ getStaticProps)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6689);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1853);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var mongodb__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8013);
-/* harmony import */ var mongodb__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(mongodb__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(3590);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([react_toastify__WEBPACK_IMPORTED_MODULE_4__]);
-react_toastify__WEBPACK_IMPORTED_MODULE_4__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
-
-
-
-
-
-const TaskDetails = (props)=>{
-    const router = (0,next_router__WEBPACK_IMPORTED_MODULE_2__.useRouter)();
-    const { data  } = props;
-    const modalRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
-    const goBack = ()=>router.push("/");
-    // update task status in database
-    const updateStatus = async (taskId)=>{
-        const res = await fetch(`/api/details/${taskId}`, {
-            method: "PUT"
-        });
-        const data = await res.json();
-    };
-    // delete task from the database
-    const deleteTask = async (taskId)=>{
-        try {
-            const res = await fetch(`/api/task/${taskId}`, {
-                method: "DELETE"
-            });
-            const data = await res.json();
-            react_toastify__WEBPACK_IMPORTED_MODULE_4__.toast.success(data.message);
-            router.push("/");
-        } catch (error) {
-            react_toastify__WEBPACK_IMPORTED_MODULE_4__.toast.error("Something went wrong!");
-        }
-    };
-    // open modal
-    const modalToggle = ()=>modalRef.current.classList.toggle("showModal");
-    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-        className: "main__container",
-        children: [
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                className: "back__btn",
-                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h6", {
-                    onClick: goBack,
-                    children: " Go Back"
-                })
-            }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                className: "task__details-header",
-                children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                    className: "details__btns",
-                    children: [
-                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
-                            className: "edit__btn",
-                            onClick: ()=>router.push(`/edit/${data.id}`),
-                            children: "Edit"
-                        }),
-                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                            className: "delete__modal",
-                            ref: modalRef,
-                            children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                                className: "modal",
-                                children: [
-                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h3", {
-                                        children: "Confirm Deletion"
-                                    }),
-                                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
-                                        children: [
-                                            "Are you sure you want to delete the Task details #",
-                                            data.id.substr(0, 6).toUpperCase(),
-                                            "? This action cannon be undone."
-                                        ]
-                                    }),
-                                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                                        className: "details__btns modal__btns",
-                                        children: [
-                                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
-                                                className: "edit__btn",
-                                                onClick: modalToggle,
-                                                children: "Cancel"
-                                            }),
-                                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
-                                                className: "delete__btn",
-                                                onClick: ()=>deleteTask(data.id),
-                                                children: "Confirm"
-                                            })
-                                        ]
-                                    })
-                                ]
-                            })
-                        }),
-                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
-                            className: "delete__btn",
-                            onClick: modalToggle,
-                            children: "Delete"
-                        })
-                    ]
-                })
-            }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                className: "task__details",
-                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                    className: "details__box",
-                    children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                        className: "task__client-address",
-                        children: [
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
-                                children: "Details"
-                            }),
-                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("h4", {
-                                children: [
-                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("strong", {
-                                        children: "Resource Name:"
-                                    }),
-                                    " ",
-                                    data.resourceName
-                                ]
-                            }),
-                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
-                                children: [
-                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("strong", {
-                                        children: "Job code:"
-                                    }),
-                                    " ",
-                                    data.jobCode
-                                ]
-                            }),
-                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
-                                children: [
-                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("strong", {
-                                        children: "Task Description:"
-                                    }),
-                                    " ",
-                                    data.taskDescription
-                                ]
-                            }),
-                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
-                                children: [
-                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("strong", {
-                                        children: "Start Date:"
-                                    }),
-                                    " ",
-                                    data.createdAt
-                                ]
-                            }),
-                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
-                                children: [
-                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("strong", {
-                                        children: "End Date:"
-                                    }),
-                                    " ",
-                                    data.createdEt
-                                ]
-                            }),
-                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
-                                children: [
-                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("strong", {
-                                        children: "Status:"
-                                    }),
-                                    " ",
-                                    data.statusDetails
-                                ]
-                            })
-                        ]
-                    })
-                })
-            })
-        ]
-    });
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TaskDetails);
-async function getStaticPaths() {
-    const client = await mongodb__WEBPACK_IMPORTED_MODULE_3__.MongoClient.connect(`mongodb+srv://admin:admin@cluster0.8rv8cqp.mongodb.net/?retryWrites=true&w=majority`, {
-        useNewUrlParser: true
-    });
-    const db = client.db();
-    const collection = db.collection("TaskDetails");
-    const details = await collection.find({}, {
-        _id: 1
-    }).toArray();
-    return {
-        fallback: "blocking",
-        paths: details.map((task)=>({
-                params: {
-                    taskId: task._id.toString()
-                }
-            }))
-    };
-}
-async function getStaticProps(context) {
-    const { taskId  } = context.params;
-    const client = await mongodb__WEBPACK_IMPORTED_MODULE_3__.MongoClient.connect(`mongodb+srv://admin:admin@cluster0.8rv8cqp.mongodb.net/?retryWrites=true&w=majority`, {
-        useNewUrlParser: true
-    });
-    const db = client.db();
-    const collection = db.collection("TaskDetails");
-    const task = await collection.findOne({
-        _id: (0,mongodb__WEBPACK_IMPORTED_MODULE_3__.ObjectId)(taskId)
-    });
-    return {
-        props: {
-            data: {
-                id: task._id.toString(),
-                resourceName: task.resourceName,
-                jobCode: task.jobCode,
-                taskDescription: task.taskDescription,
-                createdAt: task.createdAt,
-                createdEt: task.createdEt,
-                statusDetails: task.statusDetails
-            }
-        },
-        revalidate: 1
-    };
-}
-
-__webpack_async_result__();
-} catch(e) { __webpack_async_result__(e); } });
+eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__),\n/* harmony export */   \"getStaticPaths\": () => (/* binding */ getStaticPaths),\n/* harmony export */   \"getStaticProps\": () => (/* binding */ getStaticProps)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/router */ \"next/router\");\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var mongodb__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! mongodb */ \"mongodb\");\n/* harmony import */ var mongodb__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(mongodb__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-toastify */ \"react-toastify\");\nvar __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([react_toastify__WEBPACK_IMPORTED_MODULE_4__]);\nreact_toastify__WEBPACK_IMPORTED_MODULE_4__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];\n\n\n\n\n\nconst TaskDetails = (props)=>{\n    const router = (0,next_router__WEBPACK_IMPORTED_MODULE_2__.useRouter)();\n    const { data  } = props;\n    const modalRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);\n    const goBack = ()=>router.push(\"/\");\n    // update task status in database\n    const updateStatus = async (taskId)=>{\n        const res = await fetch(`/api/details/${taskId}`, {\n            method: \"PUT\"\n        });\n        const data = await res.json();\n    };\n    // delete task from the database\n    const deleteTask = async (taskId)=>{\n        try {\n            const res = await fetch(`/api/task/${taskId}`, {\n                method: \"DELETE\"\n            });\n            const data = await res.json();\n            react_toastify__WEBPACK_IMPORTED_MODULE_4__.toast.success(data.message);\n            router.push(\"/\");\n        } catch (error) {\n            react_toastify__WEBPACK_IMPORTED_MODULE_4__.toast.error(\"Something went wrong!\");\n        }\n    };\n    // open modal\n    const modalToggle = ()=>modalRef.current.classList.toggle(\"showModal\");\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        className: \"main__container\",\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: \"back__btn\",\n                children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h6\", {\n                    onClick: goBack,\n                    children: \" Go Back\"\n                }, void 0, false, {\n                    fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                    lineNumber: 42,\n                    columnNumber: 9\n                }, undefined)\n            }, void 0, false, {\n                fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                lineNumber: 41,\n                columnNumber: 7\n            }, undefined),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: \"task__details-header\",\n                children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                    className: \"details__btns\",\n                    children: [\n                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"button\", {\n                            className: \"edit__btn\",\n                            onClick: ()=>router.push(`/edit/${data.id}`),\n                            children: \"Edit\"\n                        }, void 0, false, {\n                            fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                            lineNumber: 48,\n                            columnNumber: 11\n                        }, undefined),\n                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                            className: \"delete__modal\",\n                            ref: modalRef,\n                            children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                                className: \"modal\",\n                                children: [\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h3\", {\n                                        children: \"Confirm Deletion\"\n                                    }, void 0, false, {\n                                        fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                                        lineNumber: 58,\n                                        columnNumber: 15\n                                    }, undefined),\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                                        children: [\n                                            \"Are you sure you want to delete the Task details #\",\n                                            data.id.substr(0, 6).toUpperCase(),\n                                            \"? This action cannon be undone.\"\n                                        ]\n                                    }, void 0, true, {\n                                        fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                                        lineNumber: 59,\n                                        columnNumber: 15\n                                    }, undefined),\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                                        className: \"details__btns modal__btns\",\n                                        children: [\n                                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"button\", {\n                                                className: \"edit__btn\",\n                                                onClick: modalToggle,\n                                                children: \"Cancel\"\n                                            }, void 0, false, {\n                                                fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                                                lineNumber: 66,\n                                                columnNumber: 17\n                                            }, undefined),\n                                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"button\", {\n                                                className: \"delete__btn\",\n                                                onClick: ()=>deleteTask(data.id),\n                                                children: \"Confirm\"\n                                            }, void 0, false, {\n                                                fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                                                lineNumber: 70,\n                                                columnNumber: 17\n                                            }, undefined)\n                                        ]\n                                    }, void 0, true, {\n                                        fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                                        lineNumber: 65,\n                                        columnNumber: 15\n                                    }, undefined)\n                                ]\n                            }, void 0, true, {\n                                fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                                lineNumber: 57,\n                                columnNumber: 13\n                            }, undefined)\n                        }, void 0, false, {\n                            fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                            lineNumber: 56,\n                            columnNumber: 11\n                        }, undefined),\n                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"button\", {\n                            className: \"delete__btn\",\n                            onClick: modalToggle,\n                            children: \"Delete\"\n                        }, void 0, false, {\n                            fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                            lineNumber: 82,\n                            columnNumber: 11\n                        }, undefined)\n                    ]\n                }, void 0, true, {\n                    fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                    lineNumber: 47,\n                    columnNumber: 9\n                }, undefined)\n            }, void 0, false, {\n                fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                lineNumber: 46,\n                columnNumber: 7\n            }, undefined),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: \"task__details\",\n                children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                    className: \"details__box\",\n                    children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                        className: \"task__client-address\",\n                        children: [\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                                children: \"Details\"\n                            }, void 0, false, {\n                                fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                                lineNumber: 91,\n                                columnNumber: 13\n                            }, undefined),\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h4\", {\n                                children: [\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"strong\", {\n                                        children: \"Resource Name:\"\n                                    }, void 0, false, {\n                                        fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                                        lineNumber: 92,\n                                        columnNumber: 17\n                                    }, undefined),\n                                    \" \",\n                                    data.resourceName\n                                ]\n                            }, void 0, true, {\n                                fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                                lineNumber: 92,\n                                columnNumber: 13\n                            }, undefined),\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                                children: [\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"strong\", {\n                                        children: \"Job code:\"\n                                    }, void 0, false, {\n                                        fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                                        lineNumber: 93,\n                                        columnNumber: 16\n                                    }, undefined),\n                                    \" \",\n                                    data.jobCode\n                                ]\n                            }, void 0, true, {\n                                fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                                lineNumber: 93,\n                                columnNumber: 13\n                            }, undefined),\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                                children: [\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"strong\", {\n                                        children: \"Task Description:\"\n                                    }, void 0, false, {\n                                        fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                                        lineNumber: 94,\n                                        columnNumber: 16\n                                    }, undefined),\n                                    \" \",\n                                    data.taskDescription\n                                ]\n                            }, void 0, true, {\n                                fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                                lineNumber: 94,\n                                columnNumber: 13\n                            }, undefined),\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                                children: [\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"strong\", {\n                                        children: \"Start Date:\"\n                                    }, void 0, false, {\n                                        fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                                        lineNumber: 95,\n                                        columnNumber: 16\n                                    }, undefined),\n                                    \" \",\n                                    data.createdAt\n                                ]\n                            }, void 0, true, {\n                                fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                                lineNumber: 95,\n                                columnNumber: 13\n                            }, undefined),\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                                children: [\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"strong\", {\n                                        children: \"End Date:\"\n                                    }, void 0, false, {\n                                        fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                                        lineNumber: 96,\n                                        columnNumber: 16\n                                    }, undefined),\n                                    \" \",\n                                    data.createdEt\n                                ]\n                            }, void 0, true, {\n                                fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                                lineNumber: 96,\n                                columnNumber: 13\n                            }, undefined),\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                                children: [\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"strong\", {\n                                        children: \"Status:\"\n                                    }, void 0, false, {\n                                        fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                                        lineNumber: 97,\n                                        columnNumber: 16\n                                    }, undefined),\n                                    \" \",\n                                    data.statusDetails\n                                ]\n                            }, void 0, true, {\n                                fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                                lineNumber: 97,\n                                columnNumber: 13\n                            }, undefined)\n                        ]\n                    }, void 0, true, {\n                        fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                        lineNumber: 90,\n                        columnNumber: 11\n                    }, undefined)\n                }, void 0, false, {\n                    fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                    lineNumber: 88,\n                    columnNumber: 9\n                }, undefined)\n            }, void 0, false, {\n                fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n                lineNumber: 87,\n                columnNumber: 7\n            }, undefined)\n        ]\n    }, void 0, true, {\n        fileName: \"C:\\\\Jobs\\\\POC\\\\project\\\\pages\\\\details\\\\[taskId]\\\\index.js\",\n        lineNumber: 40,\n        columnNumber: 5\n    }, undefined);\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TaskDetails);\nasync function getStaticPaths() {\n    const client = await mongodb__WEBPACK_IMPORTED_MODULE_3__.MongoClient.connect(`mongodb+srv://admin:OaWoG3FWqJoaOWSE@cluster0.cas2sic.mongodb.net/?retryWrites=true&w=majority`, {\n        useNewUrlParser: true\n    });\n    const db = client.db();\n    const collection = db.collection(\"TaskDetails\");\n    const details = await collection.find({}, {\n        _id: 1\n    }).toArray();\n    return {\n        fallback: \"blocking\",\n        paths: details.map((task)=>({\n                params: {\n                    taskId: task._id.toString()\n                }\n            }))\n    };\n}\nasync function getStaticProps(context) {\n    const { taskId  } = context.params;\n    const client = await mongodb__WEBPACK_IMPORTED_MODULE_3__.MongoClient.connect(`mongodb+srv://admin:OaWoG3FWqJoaOWSE@cluster0.cas2sic.mongodb.net/?retryWrites=true&w=majority`, {\n        useNewUrlParser: true\n    });\n    const db = client.db();\n    const collection = db.collection(\"TaskDetails\");\n    const task = await collection.findOne({\n        _id: (0,mongodb__WEBPACK_IMPORTED_MODULE_3__.ObjectId)(taskId)\n    });\n    return {\n        props: {\n            data: {\n                id: task._id.toString(),\n                resourceName: task.resourceName,\n                jobCode: task.jobCode,\n                taskDescription: task.taskDescription,\n                createdAt: task.createdAt,\n                createdEt: task.createdEt,\n                statusDetails: task.statusDetails\n            }\n        },\n        revalidate: 1\n    };\n}\n\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } });//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,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QUcsTUFBTTVDLHdEQUFtQixDQUN0QyxDQUFDLDhGQUE4RixDQUFDLEVBQ2hHO1FBQUU4QyxlQUFlLEVBQUUsSUFBSTtLQUFFLENBQzFCO0lBRUQsTUFBTUMsRUFBRSxHQUFHSCxNQUFNLENBQUNHLEVBQUUsRUFBRTtJQUN0QixNQUFNQyxVQUFVLEdBQUdELEVBQUUsQ0FBQ0MsVUFBVSxDQUFDLGFBQWEsQ0FBQztJQUMvQyxNQUFNUSxJQUFJLEdBQUcsTUFBTVIsVUFBVSxDQUFDYSxPQUFPLENBQUM7UUFBRVYsR0FBRyxFQUFFbEQsaURBQVEsQ0FBQ1UsTUFBTSxDQUFDO0tBQUUsQ0FBQztJQUVoRSxPQUFPO1FBQ0xQLEtBQUssRUFBRTtZQUNMRSxJQUFJLEVBQUU7Z0JBQ0p1QixFQUFFLEVBQUUyQixJQUFJLENBQUNMLEdBQUcsQ0FBQ08sUUFBUSxFQUFFO2dCQUN2QnJCLFlBQVksRUFBRW1CLElBQUksQ0FBQ25CLFlBQVk7Z0JBQy9CQyxPQUFPLEVBQUVrQixJQUFJLENBQUNsQixPQUFPO2dCQUNyQkMsZUFBZSxFQUFFaUIsSUFBSSxDQUFDakIsZUFBZTtnQkFDckNDLFNBQVMsRUFBRWdCLElBQUksQ0FBQ2hCLFNBQVM7Z0JBQ3pCQyxTQUFTLEVBQUVlLElBQUksQ0FBQ2YsU0FBUztnQkFDekJDLGFBQWEsRUFBRWMsSUFBSSxDQUFDZCxhQUFhO2FBQ2xDO1NBQ0Y7UUFDRG9CLFVBQVUsRUFBRSxDQUFDO0tBQ2QsQ0FBQztBQUNKLENBQUMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly90YXNrLy4vcGFnZXMvZGV0YWlscy9bdGFza0lkXS9pbmRleC5qcz8zZjY3Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCwgeyB1c2VSZWYgfSBmcm9tIFwicmVhY3RcIjtcclxuaW1wb3J0IHsgdXNlUm91dGVyIH0gZnJvbSBcIm5leHQvcm91dGVyXCI7XHJcbmltcG9ydCB7IE1vbmdvQ2xpZW50LCBPYmplY3RJZCB9IGZyb20gXCJtb25nb2RiXCI7XHJcbmltcG9ydCB7IHRvYXN0IH0gZnJvbSBcInJlYWN0LXRvYXN0aWZ5XCI7XHJcblxyXG5jb25zdCBUYXNrRGV0YWlscyA9IChwcm9wcykgPT4ge1xyXG4gIGNvbnN0IHJvdXRlciA9IHVzZVJvdXRlcigpO1xyXG4gIGNvbnN0IHsgZGF0YSB9ID0gcHJvcHM7XHJcbiAgY29uc3QgbW9kYWxSZWYgPSB1c2VSZWYobnVsbCk7XHJcblxyXG4gIGNvbnN0IGdvQmFjayA9ICgpID0+IHJvdXRlci5wdXNoKFwiL1wiKTtcclxuXHJcbiAgLy8gdXBkYXRlIHRhc2sgc3RhdHVzIGluIGRhdGFiYXNlXHJcbiAgY29uc3QgdXBkYXRlU3RhdHVzID0gYXN5bmMgKHRhc2tJZCkgPT4ge1xyXG4gICAgY29uc3QgcmVzID0gYXdhaXQgZmV0Y2goYC9hcGkvZGV0YWlscy8ke3Rhc2tJZH1gLCB7XHJcbiAgICAgIG1ldGhvZDogXCJQVVRcIixcclxuICAgIH0pO1xyXG4gICAgY29uc3QgZGF0YSA9IGF3YWl0IHJlcy5qc29uKCk7XHJcbiAgfTtcclxuXHJcbiAgLy8gZGVsZXRlIHRhc2sgZnJvbSB0aGUgZGF0YWJhc2VcclxuICBjb25zdCBkZWxldGVUYXNrID0gYXN5bmMgKHRhc2tJZCkgPT4ge1xyXG4gICAgdHJ5IHtcclxuICAgICAgY29uc3QgcmVzID0gYXdhaXQgZmV0Y2goYC9hcGkvdGFzay8ke3Rhc2tJZH1gLCB7XHJcbiAgICAgICAgbWV0aG9kOiBcIkRFTEVURVwiLFxyXG4gICAgICB9KTtcclxuXHJcbiAgICAgIGNvbnN0IGRhdGEgPSBhd2FpdCByZXMuanNvbigpO1xyXG4gICAgICB0b2FzdC5zdWNjZXNzKGRhdGEubWVzc2FnZSk7XHJcbiAgICAgIHJvdXRlci5wdXNoKFwiL1wiKTtcclxuICAgIH0gY2F0Y2ggKGVycm9yKSB7XHJcbiAgICAgIHRvYXN0LmVycm9yKFwiU29tZXRoaW5nIHdlbnQgd3JvbmchXCIpO1xyXG4gICAgfVxyXG4gIH07XHJcblxyXG4gIC8vIG9wZW4gbW9kYWxcclxuICBjb25zdCBtb2RhbFRvZ2dsZSA9ICgpID0+IG1vZGFsUmVmLmN1cnJlbnQuY2xhc3NMaXN0LnRvZ2dsZShcInNob3dNb2RhbFwiKTtcclxuXHJcbiAgcmV0dXJuIChcclxuICAgIDxkaXYgY2xhc3NOYW1lPVwibWFpbl9fY29udGFpbmVyXCI+XHJcbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmFja19fYnRuXCI+XHJcbiAgICAgICAgPGg2IG9uQ2xpY2s9e2dvQmFja30+IEdvIEJhY2s8L2g2PlxyXG4gICAgICA8L2Rpdj5cclxuXHJcbiAgICAgIHsvKiA9PT09PT09IHRhc2sgZGV0YWlscyBoZWFkZXIgPT09PT09PT09PSAqL31cclxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0YXNrX19kZXRhaWxzLWhlYWRlclwiPlxyXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZGV0YWlsc19fYnRuc1wiPlxyXG4gICAgICAgICAgPGJ1dHRvblxyXG4gICAgICAgICAgICBjbGFzc05hbWU9XCJlZGl0X19idG5cIlxyXG4gICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiByb3V0ZXIucHVzaChgL2VkaXQvJHtkYXRhLmlkfWApfVxyXG4gICAgICAgICAgPlxyXG4gICAgICAgICAgICBFZGl0XHJcbiAgICAgICAgICA8L2J1dHRvbj5cclxuXHJcbiAgICAgICAgICB7LyogPT09PT09PT09IGNvbmZpcm0gZGVsZXRpb24gbW9kYWwgc3RhcnQgPT09PT09PT09PSAqL31cclxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZGVsZXRlX19tb2RhbFwiIHJlZj17bW9kYWxSZWZ9PlxyXG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm1vZGFsXCI+XHJcbiAgICAgICAgICAgICAgPGgzPkNvbmZpcm0gRGVsZXRpb248L2gzPlxyXG4gICAgICAgICAgICAgIDxwPlxyXG4gICAgICAgICAgICAgICAgQXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZSB0aGUgVGFzayBkZXRhaWxzICNcclxuICAgICAgICAgICAgICAgIHtkYXRhLmlkLnN1YnN0cigwLCA2KS50b1VwcGVyQ2FzZSgpfT8gVGhpcyBhY3Rpb24gY2Fubm9uIGJlXHJcbiAgICAgICAgICAgICAgICB1bmRvbmUuXHJcbiAgICAgICAgICAgICAgPC9wPlxyXG5cclxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImRldGFpbHNfX2J0bnMgbW9kYWxfX2J0bnNcIj5cclxuICAgICAgICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwiZWRpdF9fYnRuXCIgb25DbGljaz17bW9kYWxUb2dnbGV9PlxyXG4gICAgICAgICAgICAgICAgICBDYW5jZWxcclxuICAgICAgICAgICAgICAgIDwvYnV0dG9uPlxyXG5cclxuICAgICAgICAgICAgICAgIDxidXR0b25cclxuICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwiZGVsZXRlX19idG5cIlxyXG4gICAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBkZWxldGVUYXNrKGRhdGEuaWQpfVxyXG4gICAgICAgICAgICAgICAgPlxyXG4gICAgICAgICAgICAgICAgICBDb25maXJtXHJcbiAgICAgICAgICAgICAgICA8L2J1dHRvbj5cclxuICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICA8L2Rpdj5cclxuXHJcbiAgICAgICAgICB7LyogPT09PT09PT0gY29uZmlybSBkZWxldGlvbiBtb2RhbCBlbmQgKi99XHJcblxyXG4gICAgICAgICAgPGJ1dHRvbiBjbGFzc05hbWU9XCJkZWxldGVfX2J0blwiIG9uQ2xpY2s9e21vZGFsVG9nZ2xlfT5cclxuICAgICAgICAgICAgRGVsZXRlXHJcbiAgICAgICAgICA8L2J1dHRvbj5cclxuICAgICAgICA8L2Rpdj5cclxuICAgICAgPC9kaXY+XHJcbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGFza19fZGV0YWlsc1wiPlxyXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZGV0YWlsc19fYm94XCI+XHJcblxyXG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0YXNrX19jbGllbnQtYWRkcmVzc1wiPlxyXG4gICAgICAgICAgICA8cD5EZXRhaWxzPC9wPlxyXG4gICAgICAgICAgICA8aDQ+PHN0cm9uZz5SZXNvdXJjZSBOYW1lOjwvc3Ryb25nPiB7ZGF0YS5yZXNvdXJjZU5hbWV9PC9oND5cclxuICAgICAgICAgICAgPHA+PHN0cm9uZz5Kb2IgY29kZTo8L3N0cm9uZz4ge2RhdGEuam9iQ29kZX08L3A+XHJcbiAgICAgICAgICAgIDxwPjxzdHJvbmc+VGFzayBEZXNjcmlwdGlvbjo8L3N0cm9uZz4ge2RhdGEudGFza0Rlc2NyaXB0aW9ufTwvcD5cclxuICAgICAgICAgICAgPHA+PHN0cm9uZz5TdGFydCBEYXRlOjwvc3Ryb25nPiB7ZGF0YS5jcmVhdGVkQXR9PC9wPlxyXG4gICAgICAgICAgICA8cD48c3Ryb25nPkVuZCBEYXRlOjwvc3Ryb25nPiB7ZGF0YS5jcmVhdGVkRXR9PC9wPlxyXG4gICAgICAgICAgICA8cD48c3Ryb25nPlN0YXR1czo8L3N0cm9uZz4ge2RhdGEuc3RhdHVzRGV0YWlsc308L3A+XHJcbiAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgXHJcbiAgICAgICAgPC9kaXY+XHJcbiAgICAgIDwvZGl2PlxyXG4gICAgPC9kaXY+XHJcbiAgKTtcclxufTtcclxuXHJcbmV4cG9ydCBkZWZhdWx0IFRhc2tEZXRhaWxzO1xyXG5cclxuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGdldFN0YXRpY1BhdGhzKCkge1xyXG4gIGNvbnN0IGNsaWVudCA9IGF3YWl0IE1vbmdvQ2xpZW50LmNvbm5lY3QoXHJcbiAgICBgbW9uZ29kYitzcnY6Ly9hZG1pbjpPYVdvRzNGV3FKb2FPV1NFQGNsdXN0ZXIwLmNhczJzaWMubW9uZ29kYi5uZXQvP3JldHJ5V3JpdGVzPXRydWUmdz1tYWpvcml0eWAsXHJcbiAgICB7IHVzZU5ld1VybFBhcnNlcjogdHJ1ZSB9XHJcbiAgKTtcclxuXHJcbiAgY29uc3QgZGIgPSBjbGllbnQuZGIoKTtcclxuICBjb25zdCBjb2xsZWN0aW9uID0gZGIuY29sbGVjdGlvbihcIlRhc2tEZXRhaWxzXCIpO1xyXG5cclxuICBjb25zdCBkZXRhaWxzID0gYXdhaXQgY29sbGVjdGlvbi5maW5kKHt9LCB7IF9pZDogMSB9KS50b0FycmF5KCk7XHJcblxyXG4gIHJldHVybiB7XHJcbiAgICBmYWxsYmFjazogXCJibG9ja2luZ1wiLFxyXG4gICAgcGF0aHM6IGRldGFpbHMubWFwKCh0YXNrKSA9PiAoe1xyXG4gICAgICBwYXJhbXM6IHtcclxuICAgICAgICB0YXNrSWQ6IHRhc2suX2lkLnRvU3RyaW5nKCksXHJcbiAgICAgIH0sXHJcbiAgICB9KSksXHJcbiAgfTtcclxufVxyXG5cclxuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGdldFN0YXRpY1Byb3BzKGNvbnRleHQpIHtcclxuICBjb25zdCB7IHRhc2tJZCB9ID0gY29udGV4dC5wYXJhbXM7XHJcblxyXG4gIGNvbnN0IGNsaWVudCA9IGF3YWl0IE1vbmdvQ2xpZW50LmNvbm5lY3QoXHJcbiAgICBgbW9uZ29kYitzcnY6Ly9hZG1pbjpPYVdvRzNGV3FKb2FPV1NFQGNsdXN0ZXIwLmNhczJzaWMubW9uZ29kYi5uZXQvP3JldHJ5V3JpdGVzPXRydWUmdz1tYWpvcml0eWAsXHJcbiAgICB7IHVzZU5ld1VybFBhcnNlcjogdHJ1ZSB9XHJcbiAgKTtcclxuXHJcbiAgY29uc3QgZGIgPSBjbGllbnQuZGIoKTtcclxuICBjb25zdCBjb2xsZWN0aW9uID0gZGIuY29sbGVjdGlvbihcIlRhc2tEZXRhaWxzXCIpO1xyXG4gIGNvbnN0IHRhc2sgPSBhd2FpdCBjb2xsZWN0aW9uLmZpbmRPbmUoeyBfaWQ6IE9iamVjdElkKHRhc2tJZCkgfSk7XHJcblxyXG4gIHJldHVybiB7XHJcbiAgICBwcm9wczoge1xyXG4gICAgICBkYXRhOiB7XHJcbiAgICAgICAgaWQ6IHRhc2suX2lkLnRvU3RyaW5nKCksXHJcbiAgICAgICAgcmVzb3VyY2VOYW1lOiB0YXNrLnJlc291cmNlTmFtZSxcclxuICAgICAgICBqb2JDb2RlOiB0YXNrLmpvYkNvZGUsXHJcbiAgICAgICAgdGFza0Rlc2NyaXB0aW9uOiB0YXNrLnRhc2tEZXNjcmlwdGlvbixcclxuICAgICAgICBjcmVhdGVkQXQ6IHRhc2suY3JlYXRlZEF0LFxyXG4gICAgICAgIGNyZWF0ZWRFdDogdGFzay5jcmVhdGVkRXQsXHJcbiAgICAgICAgc3RhdHVzRGV0YWlsczogdGFzay5zdGF0dXNEZXRhaWxzLFxyXG4gICAgICB9LFxyXG4gICAgfSxcclxuICAgIHJldmFsaWRhdGU6IDEsXHJcbiAgfTtcclxufVxyXG4iXSwibmFtZXMiOlsiUmVhY3QiLCJ1c2VSZWYiLCJ1c2VSb3V0ZXIiLCJNb25nb0NsaWVudCIsIk9iamVjdElkIiwidG9hc3QiLCJUYXNrRGV0YWlscyIsInByb3BzIiwicm91dGVyIiwiZGF0YSIsIm1vZGFsUmVmIiwiZ29CYWNrIiwicHVzaCIsInVwZGF0ZVN0YXR1cyIsInRhc2tJZCIsInJlcyIsImZldGNoIiwibWV0aG9kIiwianNvbiIsImRlbGV0ZVRhc2siLCJzdWNjZXNzIiwibWVzc2FnZSIsImVycm9yIiwibW9kYWxUb2dnbGUiLCJjdXJyZW50IiwiY2xhc3NMaXN0IiwidG9nZ2xlIiwiZGl2IiwiY2xhc3NOYW1lIiwiaDYiLCJvbkNsaWNrIiwiYnV0dG9uIiwiaWQiLCJyZWYiLCJoMyIsInAiLCJzdWJzdHIiLCJ0b1VwcGVyQ2FzZSIsImg0Iiwic3Ryb25nIiwicmVzb3VyY2VOYW1lIiwiam9iQ29kZSIsInRhc2tEZXNjcmlwdGlvbiIsImNyZWF0ZWRBdCIsImNyZWF0ZWRFdCIsInN0YXR1c0RldGFpbHMiLCJnZXRTdGF0aWNQYXRocyIsImNsaWVudCIsImNvbm5lY3QiLCJ1c2VOZXdVcmxQYXJzZXIiLCJkYiIsImNvbGxlY3Rpb24iLCJkZXRhaWxzIiwiZmluZCIsIl9pZCIsInRvQXJyYXkiLCJmYWxsYmFjayIsInBhdGhzIiwibWFwIiwidGFzayIsInBhcmFtcyIsInRvU3RyaW5nIiwiZ2V0U3RhdGljUHJvcHMiLCJjb250ZXh0IiwiZmluZE9uZSIsInJldmFsaWRhdGUiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./pages/details/[taskId]/index.js\n");
 
 /***/ }),
 
-/***/ 8013:
+/***/ "mongodb":
+/*!**************************!*\
+  !*** external "mongodb" ***!
+  \**************************/
 /***/ ((module) => {
 
 module.exports = require("mongodb");
 
 /***/ }),
 
-/***/ 1853:
+/***/ "next/router":
+/*!******************************!*\
+  !*** external "next/router" ***!
+  \******************************/
 /***/ ((module) => {
 
 module.exports = require("next/router");
 
 /***/ }),
 
-/***/ 6689:
+/***/ "react":
+/*!************************!*\
+  !*** external "react" ***!
+  \************************/
 /***/ ((module) => {
 
 module.exports = require("react");
 
 /***/ }),
 
-/***/ 997:
+/***/ "react/jsx-dev-runtime":
+/*!****************************************!*\
+  !*** external "react/jsx-dev-runtime" ***!
+  \****************************************/
 /***/ ((module) => {
 
-module.exports = require("react/jsx-runtime");
+module.exports = require("react/jsx-dev-runtime");
 
 /***/ }),
 
-/***/ 3590:
+/***/ "react-toastify":
+/*!*********************************!*\
+  !*** external "react-toastify" ***!
+  \*********************************/
 /***/ ((module) => {
 
 module.exports = import("react-toastify");;
@@ -283,7 +80,7 @@ module.exports = import("react-toastify");;
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__(9492));
+var __webpack_exports__ = (__webpack_exec__("./pages/details/[taskId]/index.js"));
 module.exports = __webpack_exports__;
 
 })();

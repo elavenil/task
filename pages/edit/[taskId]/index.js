@@ -29,7 +29,7 @@ const EditItem = (props) => {
         body: JSON.stringify({
           resourceName: resourceName,
           jobCode: jobCode,
-          TaskDescription: taskDescription,
+          taskDescription: taskDescription,
           createdAt: createdAt,
           createdEt: createdEt,
           statusDetails: statusDetails,
@@ -146,7 +146,7 @@ export default EditItem;
 
 export async function getStaticPaths() {
   const client = await MongoClient.connect(
-    `mongodb+srv://admin:admin@cluster0.8rv8cqp.mongodb.net/?retryWrites=true&w=majority`,
+    `mongodb+srv://admin:OaWoG3FWqJoaOWSE@cluster0.cas2sic.mongodb.net/?retryWrites=true&w=majority`,
     { useNewUrlParser: true }
   );
 
@@ -169,7 +169,7 @@ export async function getStaticProps(context) {
   const { taskId } = context.params;
 
   const client = await MongoClient.connect(
-    `mongodb+srv://admin:admin@cluster0.8rv8cqp.mongodb.net/?retryWrites=true&w=majority`,
+    `mongodb+srv://admin:OaWoG3FWqJoaOWSE@cluster0.cas2sic.mongodb.net/?retryWrites=true&w=majority`,
     { useNewUrlParser: true }
   );
 

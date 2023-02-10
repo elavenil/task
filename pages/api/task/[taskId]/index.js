@@ -4,7 +4,7 @@ async function handler(req, res) {
   const { taskId } = req.query;
 
   const client = await MongoClient.connect(
-    `mongodb+srv://admin:admin@cluster0.8rv8cqp.mongodb.net/?retryWrites=true&w=majority`,
+    `mongodb+srv://admin:OaWoG3FWqJoaOWSE@cluster0.cas2sic.mongodb.net/?retryWrites=true&w=majority`,
     { useNewUrlParser: true }
   );
 
