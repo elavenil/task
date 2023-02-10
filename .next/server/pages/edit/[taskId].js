@@ -38,7 +38,7 @@ const EditItem = (props)=>{
     // const [items, setItems] = useState(task.items);
     const { 0: resourceName , 1: setresourceName  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("");
     const { 0: jobCode , 1: setjobCode  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("");
-    const { 0: taskDescription , 1: setTaskDescription  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("");
+    const { 0: taskDescription , 1: settaskDescription  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("");
     const { 0: createdAt , 1: setcreatedAt  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("");
     const { 0: createdEt , 1: setcreatedEt  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("");
     const { 0: statusDetails , 1: setstatusDetails  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("");
@@ -70,7 +70,7 @@ const EditItem = (props)=>{
     (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
         setresourceName(task.resourceName);
         setjobCode(task.jobCode);
-        setTaskDescription(task.setaskDescription);
+        settaskDescription(task.settaskDescription);
         setcreatedAt(task.createdAt);
         setcreatedEt(task.createdEt);
         setstatusDetails(task.statusDetails);

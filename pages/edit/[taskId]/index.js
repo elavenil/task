@@ -11,7 +11,7 @@ const EditItem = (props) => {
   // const [items, setItems] = useState(task.items);
   const [resourceName, setresourceName] = useState("");
   const [jobCode, setjobCode] = useState("");
-  const [taskDescription, setTaskDescription] = useState("");
+  const [taskDescription, settaskDescription] = useState("");
   const [createdAt, setcreatedAt] = useState("");
   const [createdEt, setcreatedEt] = useState("");
   const [statusDetails, setstatusDetails] = useState("");
@@ -48,7 +48,7 @@ const EditItem = (props) => {
   useEffect(() => {
     setresourceName(task.resourceName);
     setjobCode(task.jobCode);
-    setTaskDescription(task.setaskDescription);
+    settaskDescription(task.settaskDescription);
     setcreatedAt(task.createdAt);
     setcreatedEt(task.createdEt);
     setstatusDetails(task.statusDetails);
